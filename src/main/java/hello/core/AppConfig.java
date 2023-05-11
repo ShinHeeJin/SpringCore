@@ -27,12 +27,14 @@ public class AppConfig {
 
     @Bean
     public MemberService memberService(){
-        return new MemberServiceImpl(memberRepository());
+        return new MemberServiceImpl(memberRepository()); // new MemoryMemberRepository()
     }
 
     @Bean
     public OrderService orderService(){
-        return new OrderServiceImpl(memberRepository(), discountPolicy());
+        return new OrderServiceImpl(memberRepository(), discountPolicy());  // new MemoryMemberRepository()
     }
+
+    // Spring Bean의 Singleton이 보장되는 걸까?
 
 }
